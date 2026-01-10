@@ -142,8 +142,14 @@ int main(void)
 
 	// calling functions
 	clear_canvas(m_canvas);
-	draw_centered_triangle(m_canvas, 0, 8, 5, '#');
-        render_canvas(m_canvas);	
-
+    for(int r = 0; r < HEIGHT; ++r) 
+    {
+        draw_diagonal_down_left(m_canvas, r, 5, 8, '+');
+    }
+    for(int c = 0; c < WIDTH; ++c) 
+    {
+        fill_rectangle(m_canvas, 0, c, 5, 5, '*');
+    }
+    render_canvas(m_canvas);
 }	
 
