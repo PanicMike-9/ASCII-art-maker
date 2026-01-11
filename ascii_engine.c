@@ -107,11 +107,14 @@ void draw_right_angle_triangle(char canvas[HEIGHT][WIDTH], int start_row, int co
 // creates a center triangle
 void draw_centered_triangle(char canvas[HEIGHT][WIDTH], int start_row, int center_col, int height, char character)
 {
-	for(int i = 0; i < height; ++i)
-	{
-		int start_col = center_col - i;
-		draw_horizontal_line(canvas, start_row + i, start_col, height, character);
-	}
+    for(int r = 0; r < height; ++r)
+    {
+        int current_row = start_row + r;
+        int line_length = 2 * r + 1;
+        int start_col = center_col - (line_length / 2);
+
+        draw_horizontal_line(canvas, current_row, start_col, line_length, character);
+    }
 }
 
 // simple diagonal line, starts at top left, to bottom right
@@ -142,14 +145,15 @@ int main(void)
 
 	// calling functions
 	clear_canvas(m_canvas);
-    for(int r = 0; r < HEIGHT; ++r) 
-    {
-        draw_diagonal_down_left(m_canvas, r, 5, 8, '+');
-    }
-    for(int c = 0; c < WIDTH; ++c) 
-    {
-        fill_rectangle(m_canvas, 0, c, 5, 5, '*');
-    }
+    draw_centered_triangle(m_canvas, 1, 25, 5, 't');
+    draw_centered_triangle(m_canvas, 2, 15, 5, 'C');
     render_canvas(m_canvas);
 }	
 
+/*
+    A simple rectangle using line functions
+    draw_horizontal_line(m_canvas, 1, 5, 10, '*');
+    draw_vertical_line(m_canvas, 1, 5, 10, '*');
+    draw_horizontal_line(m_canvas, 10, 5, 10, '*');
+    draw_vertical_line(m_canvas, 1, 15, 10, '*');
+*/
