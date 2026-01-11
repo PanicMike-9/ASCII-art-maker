@@ -1,4 +1,4 @@
-# ASCII Canvas
+o# ASCII Canvas
 
 - Each pixel is a character
 - Arranged in rows and columns
@@ -22,7 +22,9 @@ canvas
 - fixed width
 - fixed height
 
-# fill_rectangle v1.0
+# Old function version
+
+###  fill_rectangle v1.0
 
 ``` C
 // fills the rectangle with the given character
@@ -34,7 +36,7 @@ void fill_rectangle(char canvas[HEIGHT][WIDTH], int top_row, int left_col, int w
         }
 }
 ```
-# draw_centered_triangle v1.0
+###  draw_centered_triangle v1.0
 
 ```C
 // creates a center triangle
